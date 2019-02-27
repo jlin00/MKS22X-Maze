@@ -62,20 +62,20 @@ public class Maze{
     }
 
     private void wait(int millis){
-         try {
-             Thread.sleep(millis);
-         }
-         catch (InterruptedException e) {
-         }
+      try {
+          Thread.sleep(millis);
+      }
+      catch (InterruptedException e) {
+      }
      }
 
     public void setAnimate(boolean b){
-        animate = b;
+      animate = b;
     }
 
     public void clearTerminal(){
         //erase terminal, go to top left of screen.
-        System.out.println("\033[2J\033[1;1H");
+      System.out.println("\033[2J\033[1;1H");
     }
 
 
@@ -84,13 +84,25 @@ public class Maze{
       Since the constructor exits when the file is not found or is missing an E or S, we can assume it exists.
     */
     public int solve(){
-            //find the location of the S.
+      //find the location of the S.
+      int row = 0;
+      int col = 0;
 
-            //erase the S
+      for (int x = 0; x < maze.length; x++){
+        for (int y = 0; y < maze[0].length; y++){
+          if (maze[x][y] == 'S'){ //find S
+            row = x;
+            col = y;
+          }
+        }
+      }
 
-            //and start solving at the location of the s.
-            //return solve(???,???);
-            return 0;
+      //erase the S
+      maze[row][col] = ' ';
+
+      //and start solving at the location of the s.
+      //return solve(???,???);
+      return solve(row, col);
     }
 
     /*
@@ -107,16 +119,15 @@ public class Maze{
         All visited spots that are part of the solution are changed to '@'
     */
     private int solve(int row, int col){ //you can add more parameters since this is private
+      //automatic animation! You are welcome.
+      if(animate){
+          clearTerminal();
+          System.out.println(this);
+          wait(20);
+      }
 
-        //automatic animation! You are welcome.
-        if(animate){
-            clearTerminal();
-            System.out.println(this);
-            wait(20);
-        }
-
-        //COMPLETE SOLVE
-        return -1; //so it compiles
+      //COMPLETE SOLVE
+      return -1; //so it compiles
     }
 
 }
