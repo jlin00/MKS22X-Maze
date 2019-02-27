@@ -10,8 +10,8 @@ public class Driver{
         System.out.println(f);
 
         f.setAnimate(true);
-        f.solve();
-        //System.out.println(f);
+        System.out.println(f.solve());
+        System.out.println(f);
       }
       catch(FileNotFoundException e){
         System.out.println("Invalid filename: "+filename);
@@ -25,7 +25,7 @@ public class Driver{
         System.out.println(f2);
 
         f2.setAnimate(true);
-        f2.solve();
+        System.out.println(f2.solve());
         //System.out.println(f2);
       }
       catch(FileNotFoundException e){
@@ -40,7 +40,7 @@ public class Driver{
         System.out.println(f3);
 
         f3.setAnimate(true);
-        f3.solve();
+        System.out.println(f3.solve());
         //System.out.println(f3);
       }
       catch(FileNotFoundException e){

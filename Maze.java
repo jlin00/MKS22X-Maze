@@ -50,6 +50,7 @@ public class Maze{
 
     }
 
+    //toString
     public String toString(){
       String output = "";
       for (int x = 0; x < maze.length; x++){
@@ -127,6 +128,20 @@ public class Maze{
       }
 
       //COMPLETE SOLVE
+      int output = 0;
+      if (maze[row][col] == 'E') return output; //if exit found
+      if (maze[row][col] == '@' || maze[row][col] == '.' || maze[row][col] == '#') return -1;
+
+      int[][] moves = {{0,1},{0,-1},{-1,0},{1,0}}; //up, down, left, right
+
+      for (int i = 0; i < moves.length; i++){
+        maze[row][col] = '@';
+        output++;
+        output += (solve(row + moves[i][0], col + moves[i][1])); //recursive step
+        maze[row][col] = '.';
+        output--;
+      }
+
       return -1; //so it compiles
     }
 
