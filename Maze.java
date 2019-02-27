@@ -50,6 +50,17 @@ public class Maze{
 
     }
 
+    public String toString(){
+      String output = "";
+      for (int x = 0; x < maze.length; x++){
+        for (int y = 0; y < maze[0].length; y++){
+          output += maze[x][y];
+        }
+        output += "\n";
+      }
+      return output;
+    }
+
     private void wait(int millis){
          try {
              Thread.sleep(millis);
@@ -79,6 +90,7 @@ public class Maze{
 
             //and start solving at the location of the s.
             //return solve(???,???);
+            return 0;
     }
 
     /*
