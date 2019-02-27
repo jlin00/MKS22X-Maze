@@ -14,9 +14,9 @@ public class ReadFile {
 
     //adds each line to text file
     while(inf.hasNextLine()){
-      String line = inf.nextLine();
+      //String line = inf.nextLine();
       //System.out.println(line);
-      lines.add(line);
+      lines.add(inf.nextLine());
     }
 
     int numLines = lines.size(); //number of lines

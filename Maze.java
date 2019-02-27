@@ -1,8 +1,9 @@
 import java.util.*;
 import java.io.*;
+
 public class Maze{
 
-    private char[][]maze;
+    private char[][] maze;
     private boolean animate;//false by default
 
     /*Constructor loads a maze text file, and sets animate to false by default.
@@ -19,7 +20,34 @@ public class Maze{
          throw a FileNotFoundException or IllegalStateException
     */
     public Maze(String filename) throws FileNotFoundException{
-        //COMPLETE CONSTRUCTOR
+        animate = false; //sets animate to false
+
+        File data = new File(filename); //input filename
+        Scanner info = new Scanner(data);
+        ArrayList<String> lines = new ArrayList<String>(); //stores each line of the file as a String
+
+        while (info.hasNextLine()){ //loops through file
+          lines.add(info.nextLine()); //add each line to arraylist
+        }
+
+        int numLines = lines.size(); //number of lines in file
+        int numChars = lines.get(0).length(); //number of characters in each line
+        maze = new char[numLines][numChars]; //initializes maze size
+
+        int start = 0; //keeps track of number of starts
+        int exit = 0; //keeps track of number of exits
+
+        for (int x = 0; x < numLines; x++){
+          for (int y = 0; y < numChars; y++){
+            char character = lines.get(x).charAt(y);
+            if (character == 'S') start++;
+            if (character == 'E') exit++;
+            maze[x][y] = character; //adds characters to array
+          }
+        }
+
+        if (start != 1 || exit != 1) throw new IllegalStateException(); //exception
+
     }
 
     private void wait(int millis){
