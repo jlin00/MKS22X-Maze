@@ -11,7 +11,7 @@ public class Driver{
 
         f.setAnimate(true);
         f.solve();
-        System.out.println(f);
+        //System.out.println(f);
       }
       catch(FileNotFoundException e){
         System.out.println("Invalid filename: "+filename);
@@ -26,7 +26,7 @@ public class Driver{
 
         f2.setAnimate(true);
         f2.solve();
-        System.out.println(f2);
+        //System.out.println(f2);
       }
       catch(FileNotFoundException e){
         System.out.println("Invalid filename: "+filename2);
@@ -41,12 +41,26 @@ public class Driver{
 
         f3.setAnimate(true);
         f3.solve();
-        System.out.println(f3);
+        //System.out.println(f3);
       }
       catch(FileNotFoundException e){
         System.out.println("Invalid filename: "+filename3);
       }
 
+
+      String filename4 = "data.dat";
+      try{
+        Maze f4;
+        f4 = new Maze(filename4);//true animates the maze.
+        System.out.println(f4);
+
+        f4.setAnimate(true);
+        f4.solve();
+        System.out.println(f4);
+      }
+      catch(FileNotFoundException e){
+        System.out.println("Invalid filename: "+filename4);
+      }
 
     }
 }
