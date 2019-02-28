@@ -129,19 +129,19 @@ public class Maze{
 
       //COMPLETE SOLVE
       int output = 0;
-      if (maze[row][col] == 'E') return output; //if exit found
-      if (maze[row][col] == '@' || maze[row][col] == '.' || maze[row][col] == '#') return -1;
-
       int[][] moves = {{0,1},{0,-1},{-1,0},{1,0}}; //up, down, left, right
 
-      for (int i = 0; i < moves.length; i++){
-        maze[row][col] = '@';
-        output++;
-        output += (solve(row + moves[i][0], col + moves[i][1])); //recursive step
-        maze[row][col] = '.';
-        output--;
-      }
+      if (maze[row][col] == 'E') return output; //if exit found
+      if (maze[row][col] != ' ') return -1;
 
+      maze[row][col] = '@'; //mark this spot as traveled to
+      int temp; //output
+      for (int i = 0; i < moves.length; i++){ //loop through possible moves
+        temp = solve(row + moves[i][0], col + moves[i][1]); //try move
+        if (temp != -1) return temp + 1; // returns output, plus final step
+        else if (maze[row + moves[i][0]][col + moves[i][1]] == 'E') return 1; //return one for each valid step in solution
+      }
+      maze[row][col] = '.'; //if solution fails
       return -1; //so it compiles
     }
 
