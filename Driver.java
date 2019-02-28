@@ -9,7 +9,7 @@ public class Driver{
         f = new Maze(filename);//true animates the maze.
         System.out.println(f);
 
-        f.setAnimate(true);
+        f.setAnimate(false);
         System.out.println(f.solve());
         System.out.println(f);
       }
@@ -24,9 +24,9 @@ public class Driver{
         f2 = new Maze(filename2);//true animates the maze.
         System.out.println(f2);
 
-        f2.setAnimate(true);
+        f2.setAnimate(false);
         System.out.println(f2.solve());
-        //System.out.println(f2);
+        System.out.println(f2);
       }
       catch(FileNotFoundException e){
         System.out.println("Invalid filename: "+filename2);
@@ -39,9 +39,9 @@ public class Driver{
         f3 = new Maze(filename3);//true animates the maze.
         System.out.println(f3);
 
-        f3.setAnimate(true);
+        f3.setAnimate(false);
         System.out.println(f3.solve());
-        //System.out.println(f3);
+        System.out.println(f3);
       }
       catch(FileNotFoundException e){
         System.out.println("Invalid filename: "+filename3);
@@ -54,7 +54,7 @@ public class Driver{
         f4 = new Maze(filename4);//true animates the maze.
         System.out.println(f4);
 
-        f4.setAnimate(true);
+        f4.setAnimate(false);
         f4.solve();
         System.out.println(f4);
       }
